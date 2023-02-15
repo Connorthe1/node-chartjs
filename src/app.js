@@ -11,7 +11,12 @@ const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended : false}))
 
-router.post('/', controller.test)
+router.get('/', (req, res) => {
+    res.json({
+        'hello': 'hi!'
+    })
+})
+router.post('/test', controller.test)
 
 
 app.use("/.netlify/functions/api", router)
