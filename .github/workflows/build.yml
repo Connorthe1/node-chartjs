@@ -1,6 +1,6 @@
 on: push
 jobs:
-  build-node:
+  first-job:
     runs-on: ubuntu-test
     container: node:16
     steps:
