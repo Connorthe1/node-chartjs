@@ -1,14 +1,20 @@
 const express = require('express')
 const serverless = require('serverless-http')
 const PORT = process.env.PORT || 5000
-const chartRouter = require('./chartRouter')
+// const chartRouter = require('./chartRouter')
+const controller = require('./chartController')
 const bodyParser = require('body-parser')
+const router = express.Router()
 
 const app = express()
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended : false}))
-app.use("/.netlify/functions/api", chartRouter)
+
+router.post('/', controller.test)
+
+
+app.use("/.netlify/functions/api", router)
 
 const start = async () => {
     try{
