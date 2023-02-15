@@ -8,7 +8,7 @@ const app = express()
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended : false}))
-app.use("/.netlify/chart", chartRouter)
+app.use("/.netlify/functions/api", chartRouter)
 
 const start = async () => {
     try{
