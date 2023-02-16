@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.post('/test', controller.test)
 
 
-app.use("/.netlify/functions/api", router)
+app.use("/.netlify/functions/app", router)
 
 // const start = async () => {
 //     try{
