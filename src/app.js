@@ -1,35 +1,20 @@
-const express = require('express')
-const serverless = require('serverless-http')
-const PORT = process.env.PORT || 5000
-// const chartRouter = require('./chartRouter')
-const controller = require('./chartController')
-const bodyParser = require('body-parser')
+'use strict';
+const express = require('express');
+const serverless = require('serverless-http');
+const app = express();
+const bodyParser = require('body-parser');
 
-
-const app = express()
-const router = express.Router()
-
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended : false}))
-
+const router = express.Router();
 router.get('/', (req, res) => {
-    res.json({
-        'hello': 'hi!'
-    })
-})
-router.post('/test', controller.test)
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<h1>Hello from Express.js!</h1>');
+    res.end();
+});
+router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
+router.post('/', (req, res) => res.json({ postBody: req.body }));
 
+app.use(bodyParser.json());
+app.use('/.netlify/functions/server', router);  // path must route to lambda
 
-app.use("/.netlify/functions/api", router)
-
-// const start = async () => {
-//     try{
-//         app.listen(PORT, () => console.log(`server started on port ${PORT}`))
-//     } catch (e) {
-//         console.log(e)
-//     }
-// }
-//
-// start()
 module.exports = app;
-module.exports.handler = serverless(app)
+module.exports.handler = serverless(app);
