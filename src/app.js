@@ -21,14 +21,14 @@ router.post('/test', controller.test)
 
 app.use("/.netlify/functions/api", router)
 
-const start = async () => {
-    try{
-        app.listen(PORT, () => console.log(`server started on port ${PORT}`))
-    } catch (e) {
-        console.log(e)
-    }
-}
-
-start()
+// const start = async () => {
+//     try{
+//         app.listen(PORT, () => console.log(`server started on port ${PORT}`))
+//     } catch (e) {
+//         console.log(e)
+//     }
+// }
+//
+// start()
 module.exports = app;
 module.exports.handler = serverless(app)
