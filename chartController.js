@@ -13,12 +13,12 @@ class chartController {
           chartData.series.forEach((item, idx) => {
             item.backgroundColor = bgColors[idx]
           })
-        break
+          break
         case chartData.chart.type === 'pie' || chartData.chart.type === 'doughnut':
           chartData.series.forEach(item => {
             item.backgroundColor = bgColors
           })
-        break
+          break
       }
       //chart size
       const width = 800
