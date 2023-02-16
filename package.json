@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "nodemon src/app.js",
-    "start": "./node_modules/.bin/netlify-lambda serve src",
-    "build": "./node_modules/.bin/netlify-lambda build src"
+    "start": "netlify-lambda serve src",
+    "build": "netlify-lambda build src"
   },
   "author": "Andrey Melnik",
   "license": "ISC",
