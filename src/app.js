@@ -4,9 +4,10 @@ const PORT = process.env.PORT || 5000
 // const chartRouter = require('./chartRouter')
 const controller = require('./chartController')
 const bodyParser = require('body-parser')
-const router = express.Router()
+
 
 const app = express()
+const router = express.Router()
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended : false}))
